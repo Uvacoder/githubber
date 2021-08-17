@@ -14,8 +14,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'A Tiny tool to view Publicly available Repo Information of Registered GitHub User.',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -32,14 +36,12 @@ export default {
       // MDB
       {
         rel: 'stylesheet',
-        // href: 'css/mdb.dark.min.css',
         href: 'https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css',
       },
     ],
     script: [
       {
         type: 'text/javascript',
-        // src: 'js/mdb.min.js',
         src: 'https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js',
         body: true,
       },
