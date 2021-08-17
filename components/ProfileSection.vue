@@ -51,16 +51,31 @@
             <span class="ms-1 text-danger fw-bold" v-else>not available</span>
           </div>
 
-          <!-- User's Email as they set in GitHub -->
+          <!-- User's Website as they set in GitHub -->
           <div class="col-md-12 d-flex justify-content-center">
-            <span class="h5"> Email: </span>
+            <span class="h5"> Website: </span>
 
-            <!-- Shows Email if available -->
-            <span class="ms-1" v-if="ghProfile.email">
-              {{ ghProfile.email }}</span
-            >
+            <!-- Shows Website if available -->
+            <div v-if="ghProfile.blog">
+              <a
+                class="ms-1"
+                v-if="urlCheck(ghProfile.blog)"
+                v-bind:href="ghProfile.blog"
+                target="_blank"
+              >
+                {{ ghProfile.blog }}</a
+              >
 
-            <!-- Shows if no Email is available -->
+              <a
+                class="ms-1"
+                v-else
+                v-bind:href="'https://' + ghProfile.blog"
+                target="_blank"
+              >
+                {{ 'https://' + ghProfile.blog }}</a
+              >
+            </div>
+            <!-- Shows if no Website is available -->
             <span class="ms-1 text-danger fw-bold" v-else>not available</span>
           </div>
 
@@ -137,5 +152,10 @@
 export default {
   name: 'ProfileSection',
   props: ['ghProfile', 'ghRepo'],
+  methods: {
+    urlCheck(url) {
+      return url.startsWith('https://') || url.startsWith('http://')
+    },
+  },
 }
 </script>
