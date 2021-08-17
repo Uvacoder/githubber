@@ -16,7 +16,6 @@
           />
           <button class="btn btn-primary" @click="fetchGHData">Search</button>
           <button class="btn btn-danger" @click="reset">Reset</button>
-          <!-- calling fetch() -->
         </div>
       </div>
 
@@ -61,7 +60,7 @@ export default {
     //! Fetch User Profile
     async fetchGHProfile() {
       this.ghProfile = await fetch(
-        'https://api.github.com/users/' + this.ghUser,
+        `https://api.github.com/users/${this.ghUser}`,
         {
           headers: {
             authorization: 'Basic ' + this.ghToken,
@@ -76,7 +75,7 @@ export default {
     //! Fetch User Repo
     async fetchGHRepo() {
       this.ghRepo = await fetch(
-        'https://api.github.com/users/' + this.ghUser + '/repos',
+        `https://api.github.com/users/${this.ghUser}/repos`,
         {
           headers: {
             authorization: 'Basic ' + this.ghToken,
