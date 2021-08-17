@@ -75,8 +75,8 @@ export default {
         `https://api.github.com/users/${this.ghUser}`
       )
         .then((res) => res.json())
-        .catch((res) => {
-          console.log(res)
+        .catch((err) => {
+          console.log(err)
         })
     },
     //! Fetch User Repo
@@ -85,14 +85,15 @@ export default {
         `https://api.github.com/users/${this.ghUser}/repos`
       )
         .then((res) => res.json())
-        .catch((res) => {
-          console.log(res)
+        .catch((err) => {
+          console.log(err)
         })
     },
     //! Reset Page
     reset() {
       this.ghProfile = ''
       this.ghUser = ''
+      console.clear()
     },
   },
 }
