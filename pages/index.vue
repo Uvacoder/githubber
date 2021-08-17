@@ -76,7 +76,7 @@ export default {
         `https://api.github.com/users/${this.ghUser}`,
         {
           headers: {
-            Authorization: `token ${this.ghToken}`,
+            Authorization: `Token ${this.ghToken}`,
           },
         }
       )
@@ -91,7 +91,7 @@ export default {
         `https://api.github.com/users/${this.ghUser}/repos`,
         {
           headers: {
-            Authorization: `token ${this.ghToken}`,
+            Authorization: `Token ${this.ghToken}`,
           },
         }
       )
