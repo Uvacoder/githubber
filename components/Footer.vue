@@ -2,10 +2,6 @@
   <div>
     <!-- Footer -->
     <footer class="bg-ligh text-center text-lg-start">
-      <!-- Grid container -->
-      <div class="container p-4"></div>
-      <!-- Grid container -->
-
       <!-- Copyright -->
       <div class="text-center p-3">
         wrench1815 © {{ footerYear }}
