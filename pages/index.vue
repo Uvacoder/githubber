@@ -3,10 +3,12 @@
     <div class="container">
       <!-- navbar -->
       <NavBar />
+      <!-- navbar -->
 
-      <!-- GitHub Username form -->
+      <!-- GitHub Username form Start -->
       <div class="row mt-5 d-flex justify-content-center">
         <div class="col-lg-7 col-md-6">
+          <!-- Takes GitHub Username -->
           <input
             type="text"
             class="form-control mb-4"
@@ -14,30 +16,41 @@
             autocomplete="off"
             placeholder="Enter GitHub Username"
           />
+
+          <!-- Sends username for Processing -->
           <button class="btn btn-primary" @click="fetchGHData">Search</button>
+          <!-- Sends username for Processing -->
+
+          <!-- Resets the Page -->
           <button class="btn btn-danger" @click="reset">Reset</button>
+          <!-- Resets the Page -->
         </div>
       </div>
+      <!-- GitHub Username form End -->
 
       <hr />
 
+      <!-- Welcome/Reset Screen -->
       <div class="d-flex flex-column align-items-center" v-if="ghProfile == ''">
         <h2>Enter the GitHub Username to Search</h2>
       </div>
-      <UserNotFound
-        v-bind:ghProfile="ghProfile"
-        v-bind:ghUser="ghUser"
-        v-else-if="ghProfile.message"
-      />
-      <!-- User Profile Data from GitHub End -->
+      <!-- Welcome/Reset Screen -->
+
+      <!-- Shows if User not Found -->
+      <UserNotFound v-bind:ghUser="ghUser" v-else-if="ghProfile.message" />
+      <!-- Shows if User not Found -->
+
+      <!-- Show if User Found -->
       <ProfileSection
         v-bind:ghProfile="ghProfile"
         v-bind:ghRepo="ghRepo"
         v-else
       />
-      <!-- {{ ghRepo }} -->
-      <!-- User Profile Data from GitHub End -->
+      <!-- Show if User Found -->
+
+      <!-- Footer -->
       <Footer />
+      <!-- Footer -->
     </div>
   </div>
 </template>
@@ -63,7 +76,7 @@ export default {
         `https://api.github.com/users/${this.ghUser}`,
         {
           headers: {
-            authorization: 'Basic ' + this.ghToken,
+            authorization: 'Token ' + this.ghToken,
           },
         }
       )
@@ -78,7 +91,7 @@ export default {
         `https://api.github.com/users/${this.ghUser}/repos`,
         {
           headers: {
-            authorization: 'Basic ' + this.ghToken,
+            authorization: 'Token ' + this.ghToken,
           },
         }
       )
