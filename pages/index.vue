@@ -62,7 +62,6 @@ export default {
       ghProfile: [],
       ghRepo: [],
       ghUser: '',
-      ghToken: process.env.GHTOKEN,
     }
   },
   methods: {
@@ -73,12 +72,7 @@ export default {
     //! Fetch User Profile
     async fetchGHProfile() {
       this.ghProfile = await fetch(
-        `https://api.github.com/users/${this.ghUser}`,
-        {
-          headers: {
-            authorization: `token ${this.ghToken}`,
-          },
-        }
+        `https://api.github.com/users/${this.ghUser}`
       )
         .then((res) => res.json())
         .catch((res) => {
@@ -88,12 +82,7 @@ export default {
     //! Fetch User Repo
     async fetchGHRepo() {
       this.ghRepo = await fetch(
-        `https://api.github.com/users/${this.ghUser}/repos`,
-        {
-          headers: {
-            authorization: `token ${this.ghToken}`,
-          },
-        }
+        `https://api.github.com/users/${this.ghUser}/repos`
       )
         .then((res) => res.json())
         .catch((res) => {
