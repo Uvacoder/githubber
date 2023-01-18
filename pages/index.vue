@@ -72,7 +72,7 @@ export default {
     //! Fetch User Profile
     async fetchGHProfile() {
       this.ghProfile = await fetch(
-        `https://api.github.com/users/${this.ghUser}`
+        `https://api.github.com/users/uvacoder`
       )
         .then((res) => res.json())
         .catch((err) => {
@@ -82,7 +82,7 @@ export default {
     //! Fetch User Repo
     async fetchGHRepo() {
       this.ghRepo = await fetch(
-        `https://api.github.com/users/${this.ghUser}/repos`
+        `https://api.github.com/users/uvacoder/repos`
       )
         .then((res) => res.json())
         .catch((err) => {
